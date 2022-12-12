@@ -184,6 +184,7 @@ Template("exercise.csv", row =>
             .print()
             .wait()
             ,
+	     
     // Timer para mostrar nova sentenca
         newTimer("wait", 800)
             .start()
