@@ -239,20 +239,21 @@ Template("exercise.csv", row =>
         newScale("answers", row.ANSWER1, row.ANSWER2)
         .radio()
         .vertical()
-        .center()
+        .labelsPosition("right")
         .cssContainer({"margin-top":"1em", "margin-bottom":"1em", "font-size":"1.2em", "line-height": "5em"})
         .print()
         .wait()
         ,
-	newButton("go_to_exercise", "PRÓXIMO")
+        newButton("nextbutton", "Próximo")
         .cssContainer({"margin":"1em"})
         .center()
         .print()
         .wait()
+        ,
         // Wait briefly to display which option was selected
-        newTimer("wait", 800)
-            .start()
-            .wait()
+    newTimer("wait", 800)
+        .start()
+        .wait()
 ))
 
 // Comecar experimento
@@ -331,16 +332,21 @@ Template("experiment.csv", row =>
 	newVar("CORRECT").global().set(false)
 	,
         newScale("answers", row.ANSWER1, row.ANSWER2)
-        .button()
+        .radio()
         .vertical()
-        .center()
+        .labelsPosition("right")
         .cssContainer({"margin-top":"1em", "margin-bottom":"1em", "font-size":"1.2em", "line-height": "5em"})
         .print()
         .wait()
 	.test.selected(row.INTENDEDMEANING).success( getVar("CORRECT").set(true) )
-        .log()
+        .log("last")
         ,
-
+        newButton("go_to_exercise", "Próximo")
+        .cssContainer({"margin":"1em"})
+        .center()
+        .print()
+        .wait()
+        ,
         clear()
         ,
         // Wait briefly to display which option was selected
