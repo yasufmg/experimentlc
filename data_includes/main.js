@@ -358,7 +358,7 @@ Template("experiment.csv", row =>
     // Record trial data
     .log("ITEM"     , row.ITEM)
     .log("SENTENCE"   , row.SENTENCE)
-    .log("CORRECT", getVar("CORRECT"))
+    .log("CORRECT", row.TYPE=="filler" ? "NA" : getVar("CORRECT"))
 ))
 
 // Final screen, thanks
