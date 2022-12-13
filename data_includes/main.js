@@ -157,13 +157,12 @@ newTrial("participants",
 
 // Instruções
 newTrial("instructions",
-    newText("instructions_greeting", "<h2>INSTRUÇÕES</h2><p>Ao iniciar, leia a história que aparece e clique em CONTINUAR.</p><p>Na página seguinte, aparecerá uma frase que conclui a história. Atribua uma nota a ela movimentando o cursor na escala de 0 (totalmente não aceitável) a 100 (totalmente aceitável) até a nota desejada.</p><p>Então clique em CONTINUAR e responda a uma breve pergunta que aparece depois sobre a frase, sem pensar demais na resposta. Apenas siga o sentido que tiver vindo primeiro na sua cabeça.</p><p>Por fim, clique em PRÓXIMO para continuar avaliando as próximas frases.</p>")
+    newText("instructions_greeting", "<h2>INSTRUÇÕES</h2><p>Ao iniciar, leia a história que aparece e clique em CONTINUAR.</p><p>Na página seguinte, aparecerá uma frase que conclui a história. Atribua uma nota a ela movimentando o cursor na escala de 0 (totalmente não aceitável) a 100 (totalmente aceitável) até a nota desejada.</p><p>Então clique em CONTINUAR e responda a uma breve pergunta que aparece depois sobre a frase, sem pensar demais na resposta. Apenas siga o sentido que tiver vindo primeiro na sua cabeça.</p><p>Por fim, clique em PRÓXIMO para continuar avaliando as próximas frases.</p><p>Se você entendeu essas instruções, clique em INICIAR para começar.</p>")
         .left()
         .cssContainer({"margin":"1em"})
         .print()
         ,
 
-Se você entendeu essas instruções, clique em INICIAR para começar.
     newButton("go_to_exercise", "Iniciar experimento")
         .cssContainer({"margin":"1em"})
         .center()
