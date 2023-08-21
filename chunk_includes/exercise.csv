@@ -1,5 +1,7 @@
-ITEM,CONTEXT,SENTENCE,ANSWER1,ANSWER2
-3001,"Miguel estava no supermercado fazendo as compras do mês. Ao checar a lista de compras, lembrou-se de adicionar suco de laranja no carrinho, tendo em vista que...",Isabel parece que o suco bebeu todo.,Isabel bebeu todo o suco,Isabel tomou refrigerante
-3002,"Rita e sua cachorrinha Kira estavam brincando no quintal quando avistaram um passarinho caído no chão. Assustada, Rita chegou mais perto para socorrê-lo, mas o passarinho saiu voando e...",Kira se assustou.,O passarinho voou,Kira correu
-3003,"Audrey estava saindo de casa quando começou a chover muito. Temendo o trânsito, ela voltou para o apartamento. Quando a chuva passou, ela decidiu sair e percebeu que...",O poste derrubou uma árvore,O poste deixou feridos,A árvore foi derrubada
-3004,"João trabalhava na mesma loja há 10 anos, e era evidente o descaso da empresa com o refeitório dos funcionários. Ele se juntou aos seus colegas e depois de muitas reclamações...",João obteve a reforma do refeitório,João comprou a reforma do refeitório,João insistiu pela reforma
+ITEM,CONTEXT,SENTENCE
+2001,"Durante a tarde de 15 de novembro, havia uma movimentação diferente pela cidade do Rio de Janeiro. Ao buscar informações nas ruas, a população descobriu que, naquele momento,...",Deodoro proclamou a República.
+2002,"Giovanna estava esperando o início da palestra do lado de fora do auditório quando avistou Maria no jardim. Ao ir cumprimentá-la, Giovanna ficou chocada ao perceber que...",Maria parece que fuma.
+2003,"Diego estudava para a prova de concurso quando ouviu barulhos altos na rua. Ao abrir a janela, percebeu que os vizinhos estavam discutindo e que...",A polícia estava comparecida.
+2004,"Luiz foi convidado para a festa de aniversário de seu amigo, mas estava cansado da longa semana de trabalho e resolveu cochilar durante a tarde de sábado. Ao acordar, percebeu que...",A festa já havia começado.
+2005,"Na casa de Arthur, havia um livro de um escritor muito famoso na estante. Entretanto, após receber visitas, percebeu que...",O livro estava sumido.
+2006,"No baile de formatura, Tamy e seus amigos foram até o local de carro. Entretanto, atrasaram-se para a cerimônia porque...",O trânsito estava engarrafado.

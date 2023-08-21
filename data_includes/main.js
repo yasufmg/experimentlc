@@ -18,8 +18,6 @@ Header(
 .log( "NATIVO" , getVar("NATIVO") )
 .log( "IDADE"    , getVar("IDADE") )
 .log( "ESCOLARIDADE" , getVar("ESCOLARIDADE") )
-.log( "NASCIMENTO" , getVar("NASCIMENTO") )
-.log( "RESIDENCIA" , getVar("RESIDENCIA") )
 .log( "CERTIFICADO"   , getVar("CERTIFICADO") )
 
 // Sequence of events: consent to ethics statement required to start the experiment, participant information, instructions, exercise, transition screen, main experiment, result logging, and end screen.
@@ -97,20 +95,6 @@ newTrial("participants",
         .labelsPosition("right")
         .print()
     ,
-            // Cidade em que nasceu
-    newText("<b>Qual é sua cidade e estado de nascimento?</b>")
-    ,
-    newTextInput("input_nascimento")
-        .log()
-        .print()
-    ,
-        // Cidade em que reside
-    newText("<b>Qual é sua cidade e estado de residência?</b>")
-    ,
-    newTextInput("input_residencia")
-        .log()
-        .print()
-    ,    
         // Certificado
     newText("<b>Se quiser receber certificado de participação, deixe seu e-mail aqui:</b>")
     ,
@@ -118,7 +102,7 @@ newTrial("participants",
         .log()
         .print()
     ,
-    newText("<b>OBS.: O certificado de participação apenas será enviado caso você tenha deixado seu nome completo.</b>")
+    newText("<b>Obs.: O certificado de participação apenas será enviado caso você tenha deixado seu nome completo.</b>")
     .color("red")
     ,
     // Não aparecer erro caso o participante mude as informações
@@ -150,19 +134,17 @@ newTrial("participants",
     getVar("NATIVO")   .set( getScale("input_nativo") ),
     getVar("IDADE") .set( getTextInput("input_idade") ),
     getVar("ESCOLARIDADE")    .set( getScale("input_escolaridade") ),
-    getVar("NASCIMENTO")    .set( getTextInput("input_nascimento") ),
-    getVar("RESIDENCIA")    .set( getTextInput("input_residencia") ),
     getVar("CERTIFICADO") .set( getTextInput("input_certificado") )
 )
 
-// Instruções
+// Instrucoes
 newTrial("instructions",
-    newText("instructions_greeting", "<h2>INSTRUÇÕES</h2><p>Neste experimento, você deverá dar notas para algumas frases de acordo com o uso que fazemos da língua no dia a dia.</p><p>Ao iniciar, leia a história que aparece e clique em CONTINUAR.</p><p>Na página seguinte, aparecerá uma frase que conclui a história. Atribua uma nota a ela movimentando o cursor na escala de 0 (totalmente não aceitável) a 100 (totalmente aceitável) até a nota desejada.</p><p>Então clique em CONTINUAR e responda a uma breve pergunta que aparece depois sobre a frase, sem pensar demais na resposta. Apenas siga o sentido que tiver vindo primeiro na sua cabeça.</p><p>Por fim, clique em PRÓXIMO para continuar avaliando as próximas frases.</p><p>Se você entendeu essas instruções, clique em INICIAR para começar.</p>")
+    newText("instructions_greeting", "<h2>INSTRUÇÕES</h2><p>Neste experimento, você deverá avaliar algumas frases do português de acordo com uma escala de 0 a 100, em que 0 significa TOTALMENTE ARTIFICIAL e 100 significa TOTALMENTE NATURAL.</p><p>Ao iniciar, você verá uma frase. Leia-a com atenção e atribua uma nota a ela movimentando a escala de 0 a 100.</p><p>Por fim, clique em PRÓXIMO para enviar sua nota e continuar avaliando as próximas frases.</p><p>Observe que não nos interessa saber se a frase é correta ou não, mas apenas se ela lhe parece natural ou artificial segundo o uso cotidiano que todos os falantes fazem da língua.</p><p>Após entender essas instruções, clique em INICIAR para começar.</p>")
         .left()
         .cssContainer({"margin":"1em"})
         .print()
         ,
-
+    
     newButton("go_to_exercise", "Iniciar experimento")
         .cssContainer({"margin":"1em"})
         .center()
@@ -173,7 +155,7 @@ newTrial("instructions",
 // Treinamento
 Template("exercise.csv", row =>
     newTrial( "exercise" ,
-        newText("context", row.CONTEXT)
+        newText("sentence", row.CONTEXT)
             .cssContainer({"margin-top":"2em", "margin-bottom":"2em", "font-size":"1.55em"})
             .center()
             .print()
@@ -184,9 +166,8 @@ Template("exercise.csv", row =>
             .print()
             .wait()
             ,
-	     
     // Timer para mostrar nova sentenca
-        newTimer("wait", 800)
+        newTimer("wait", 300)
             .start()
             .wait()
             ,
@@ -200,8 +181,8 @@ Template("exercise.csv", row =>
             ,
             
     newScale("slider", 100)
-        .before( newText("left", "<div class='fancy'> TOTALMENTE NÃO ACEITÁVEL (0) </div>") )
-        .after( newText("right", "<div class='fancy'> (100) TOTALMENTE ACEITÁVEL </div>") )
+        .before( newText("left", "<div class='fancy'> TOTALMENTE ARTIFICIAL (0) </div>") )
+        .after( newText("right", "<div class='fancy'> (100) TOTALMENTE NATURAL </div>") )
         .labelsPosition("top")
         .cssContainer({"margin":"1em"})
         .slider()
@@ -219,41 +200,18 @@ Template("exercise.csv", row =>
     .center()
     .print()
     ,
-        newButton("go_to_exercise", "Continuar")
+        newButton("go_to_exercise", "Próximo")
         .cssContainer({"margin":"1em"})
         .center()
         .print()
         .wait()
         ,
+        clear()
+        ,
+        // Wait briefly to display which option was selected
         newTimer("wait", 800)
             .start()
             .wait()
-        , 
-        clear()
-        ,
-        newText("comprehension", "Sem pensar muito, qual foi a primeira interpretação que você fez dessa sentença?")
-            .cssContainer({"margin-top":"1em", "margin-bottom":"1em", "font-size":"1.55em"})
-            .center()
-            .print()
-        ,
-        newScale("answers", row.ANSWER1, row.ANSWER2)
-        .radio()
-        .vertical()
-        .labelsPosition("right")
-        .cssContainer({"margin-top":"1em", "margin-bottom":"1em", "font-size":"1.2em", "line-height": "5em"})
-        .print()
-        .wait()
-        ,
-        newButton("nextbutton", "Próximo")
-        .cssContainer({"margin":"1em"})
-        .center()
-        .print()
-        .wait()
-        ,
-        // Wait briefly to display which option was selected
-    newTimer("wait", 800)
-        .start()
-        .wait()
 ))
 
 // Comecar experimento
@@ -276,7 +234,7 @@ Template("experiment.csv", row =>
         .wait()
         ,
     // Timer para mostrar nova sentenca
-        newTimer("wait", 800)
+        newTimer("wait", 300)
             .start()
             .wait()
         ,
@@ -292,8 +250,8 @@ Template("experiment.csv", row =>
             ,
 
     newScale("slider", 100)
-        .before( newText("left", "<div class='fancy'> TOTALMENTE NÃO ACEITÁVEL (0) </div>") )
-        .after( newText("right", "<div class='fancy'> (100) TOTALMENTE ACEITÁVEL </div>") )
+        .before( newText("left", "<div class='fancy'> TOTALMENTE ARTIFICIAL (0) </div>") )
+        .after( newText("right", "<div class='fancy'> (100) TOTALMENTE NATURAL </div>") )
         .labelsPosition("top")
         .cssContainer({"margin":"1em"})
         .slider()
@@ -302,7 +260,7 @@ Template("experiment.csv", row =>
         .print()
         .log("last")
         ,
-        
+    
     newText(`<span style='width: 2em; text-align: left;'>0</span>
         <span style='width: 2em; text-align: center;'>25</span>
            <span style='width: 2em; text-align: center;'>50</span>
@@ -312,36 +270,8 @@ Template("experiment.csv", row =>
     .center()
     .print()
     ,
-    newButton("go_to_exercise", "Continuar")
-        .cssContainer({"margin":"1em"})
-        .center()
-        .print()
-        .wait()
-        ,
-        newTimer("wait", 800)
-            .start()
-            .wait()
-        , 
-    clear()
-    ,
-    newText("comprehension", "Sem pensar muito, qual foi a primeira interpretação que você fez dessa sentença?")
-            .cssContainer({"margin-top":"1em", "margin-bottom":"1em", "font-size":"1.55em"})
-            .center()
-            .print()
-        ,
-	newVar("CORRECT").global().set(false)
-	,
-        newScale("answers", row.ANSWER1, row.ANSWER2)
-        .radio()
-        .vertical()
-        .labelsPosition("right")
-        .cssContainer({"margin-top":"1em", "margin-bottom":"1em", "font-size":"1.2em", "line-height": "5em"})
-        .print()
-        .wait()
-	.test.selected(row.INTENDEDMEANING).success( getVar("CORRECT").set(true) )
-        .log("last")
-        ,
-        newButton("go_to_exercise", "Próximo")
+        
+    newButton("go_to_exercise", "Próximo")
         .cssContainer({"margin":"1em"})
         .center()
         .print()
@@ -357,12 +287,11 @@ Template("experiment.csv", row =>
     
     // Record trial data
     .log("ITEM"     , row.ITEM)
-    .log("VERB"	    , row.VERB)
+    .log("CONTEXT", row.CONTEXT)
     .log("SENTENCE"   , row.SENTENCE)
-    .log("CORRECT", row.TYPE=="filler" ? "NA" : getVar("CORRECT"))
 ))
 
-// Final screen, thanks
+// Final screen: explanation of the goal
 newTrial("end",
     newText("<div class='fancy'><h2>Obrigado pela participação!</h2></div><p>Você pode fechar esta janela agora.")
         .cssContainer({"margin-top":"1em", "margin-bottom":"1em"})
