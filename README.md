@@ -10,6 +10,10 @@ Este experimento permite que o pesquisador realize a coleta de dados de aceitabi
 
 Atenção: Este é um experimento contextualizado - ou seja, antes de avaliar a sentença experimental, o participante fará a leitura de uma tela com um contexto relacionado.
 
+# Como baixar e adicionar ao PCIbex?
+
+1ª opção: Neste repositório, vá em "<> Code" > "Local" > "HTTPS" > Copie a URL e adicione no PCIBEX Farm em um projeto vazio pela opção "Git Sync". Faça as alterações de acordo com seu objeto de estudo.
+2ª opção: Neste repositório, vá em "<> Code" > "Local" > "HTTPS" > "Download ZIP". Extraia o arquivo em seu computador e arraste todas as pasta para um arquivo vazio no PCIBEX Farm. Faça as alterações de acordo com seu objeto de estudo.
 # Agradecimentos
 
 Um enorme agradecimento à Profª Drª Larissa Ciríaco, que me orientou durante toda a iniciação científica, a FAPEMIG pelo auxílio financeiro e à Drª Anna Prysłopska, que disponibilizou o template base para esse experimento de forma gratuita em seu site (https://pryslopska.com/).
