@@ -1,4 +1,4 @@
-# Experimento de Julgamento de Aceitabilidade em Português Brasileiro para PCIbex
+# Experimento Contextualizado de Julgamento de Aceitabilidade em Português Brasileiro para PCIbex
 Este experimento permite que o pesquisador realize a coleta de dados de aceitabilidade a partir de notas atribuídas às sentenças. O experimento está dividido em 6 partes:
 
 1. Termo de Consentimento Livre e Esclarecido
@@ -10,10 +10,10 @@ Este experimento permite que o pesquisador realize a coleta de dados de aceitabi
 
 Atenção: Este é um experimento contextualizado - ou seja, antes de avaliar a sentença experimental, o participante fará a leitura de uma tela com um contexto relacionado.
 
-# Como baixar e adicionar ao PCIbex?
+# Como baixar e adicionar ao PCIBEX Farm?
 
 1ª opção: Neste repositório, vá em "<> Code" > "Local" > "HTTPS" > Copie a URL e adicione no PCIBEX Farm em um projeto vazio pela opção "Git Sync". Faça as alterações de acordo com seu objeto de estudo.
-2ª opção: Neste repositório, vá em "<> Code" > "Local" > "HTTPS" > "Download ZIP". Extraia o arquivo em seu computador e arraste todas as pasta para um arquivo vazio no PCIBEX Farm. Faça as alterações de acordo com seu objeto de estudo.
+2ª opção: Neste repositório, vá em "<> Code" > "Local" > "HTTPS" > "Download ZIP". Extraia o arquivo em seu computador e arraste todas as pasta para um projeto vazio no PCIBEX Farm. Faça as alterações de acordo com seu objeto de estudo.
 
 # Agradecimentos
 
